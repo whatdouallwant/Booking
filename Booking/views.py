@@ -5,3 +5,8 @@ def home(request):
     rooms = Room.objects.all()
     return render(request, 'booking_room/home.html', context={'rooms': rooms})
 
+
+def room_page(request, pk):
+
+    room = Room.objects.get(pk=pk)
+    return render(request, 'booking_room/room.html', {'room': room})

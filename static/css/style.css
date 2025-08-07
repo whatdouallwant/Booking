@@ -1,12 +1,13 @@
 
 body {
     background-image:
-        linear-gradient(to right, rgba(0, 0, 0, 0.288) 125px, transparent 2px),
+        linear-gradient(to right, rgba(0, 0, 0, 0.266) 125px, transparent 2px),
         url(https://images.wallpaperscraft.com/image/single/sunset_horizon_sea_128766_1280x720.jpg);
     background-size: 280px 100%, cover;
     background-repeat: repeat, no-repeat;
     background-position: 0 0, center;
     background-attachment: fixed;
+
 
 }
 .container {
@@ -25,9 +26,8 @@ h1, h2, h3 {
     margin-top: 0;
 }
 
-
 button, .btn {
-    background-color: #007bff;
+    background-color: #818EC5;
     color: white;
     border: none;
     padding: 10px 16px;
@@ -36,18 +36,22 @@ button, .btn {
     transition: background-color 0.3s ease;
 }
 
+.carousel_btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 40%;
+    margin-top: 380px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.carousel_btn:hover {
+    background-color: #000000;
+}   
 button:hover, .btn:hover {
-    background-color: #0056b3;
+    background-color: #40519f;
 }
 
-
-a:hover {
-    text-decoration: underline;
-}
-
-footer {
-    margin-top: 40px;
-    text-align: center;
-    color: #777;
-    font-size: 14px;
-}

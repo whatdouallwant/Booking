@@ -1,6 +1,9 @@
+
 from django.urls import path
-from .views import home
+from Booking.views import home, room_page
 
 urlpatterns = [
-    path('', home, name='home')
+    path('', home, name='home'),
+    path('room/<int:pk>/', room_page, name='room_page'),
+
 ]
