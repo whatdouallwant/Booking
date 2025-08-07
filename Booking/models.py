@@ -1,3 +1,4 @@
+from turtle import mode
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -23,6 +24,10 @@ class Room(models.Model):
         verbose_name_plural = 'Номери'
         ordering = ['room_number']
 
+class Room_Image(models.Model):
+    room_picture = models.ImageField(upload_to='room_pictures/', blank=True, null=True)
+    related_room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name="images")
+    
 
 class Bookings(models.Model):
     STATUS_CHOICES = [

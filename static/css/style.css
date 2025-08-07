@@ -20,7 +20,6 @@ body {
 
 }
 
-
 h1, h2, h3 {
     color: #222;
     margin-top: 0;
@@ -41,6 +40,8 @@ button, .btn {
     height: 60px;
     border-radius: 40%;
     margin-top: 380px;
+    margin-left: 20px;
+    margin-right: 20px;
     background-color: #000000;
     color: white;
     border: none;
