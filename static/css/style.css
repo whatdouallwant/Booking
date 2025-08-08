@@ -1,7 +1,7 @@
 
 body {
     background-image:
-        linear-gradient(to right, rgba(0, 0, 0, 0.266) 125px, transparent 2px),
+        linear-gradient(to right, rgba(0, 0, 0, 0.216) 125px, transparent 2px),
         url(https://images.wallpaperscraft.com/image/single/sunset_horizon_sea_128766_1280x720.jpg);
     background-size: 280px 100%, cover;
     background-repeat: repeat, no-repeat;
