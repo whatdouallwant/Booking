@@ -26,7 +26,24 @@
   </div>
 </nav>
 
-
+{% for room in rooms %}
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{room.picture.url}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <div class="d-flex gap-5 ">
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <a class="btn btn_card"> </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{%endfor%}
 
 
 <div class="d-flex gap-3 flex-wrap justify-content-center">

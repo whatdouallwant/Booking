@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary mb-3 rounded-2 w-100">
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary mb-3 rounded-2 w-100 navbar-styling my-custom-color">
   <div class="container-fluid">
     <a class="navbar-brand" href="{% url 'home' %}">Booking</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,35 +28,64 @@
   </div>
 </nav>
 
-<div id="carouselExampleIndicators" class="carousel slide">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    {% for image in room.images.all %}
-      <div class="carousel-item {% if forloop.first %}active{% endif %}">
-        <img src="{{ image.room_picture.url }}" class="d-block w-100 rounded-2" alt="...">
-      </div>
-    {% endfor %}
-  </div>
-  <button class="carousel-control-prev carousel_btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next carousel_btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+<div class="d-flex gap-5 ">
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>Ціна</td>
+        <td>{{room.price_per_night}}</td>
+      </tr>
+      <tr>
+        <td>Ключ 2</td>
+        <td>Значення 2</td>
+      </tr>
+      <tr>
+        <td>Ключ 3</td>
+        <td>Значення 3</td>
+      </tr>
+      <tr>
+        <td>Ключ 3</td>
+        <td>Значення 3</td>
+      </tr>
+      <tr>
+        <td>Ключ 3</td>
+        <td>Значення 3</td>
+      </tr>
+      <tr>
+        <td>Ключ 3</td>
+        <td>Значення 3</td>
+      </tr>
+    </tbody>
+  </table>
 
-<div class="card mb-3 me-2" style="width: 18rem;">
-  <img src={{room.picture.url}} class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Номер: {{room.room_number}}</h5>
-    <p class="card-text">{{room.price_per_night}} грн</p>
-    <a href="{% url 'room_page' room.pk %}" class="btn btn-primary">Детальніше</a>
+  <div id="carouselExampleIndicators" class="carousel slide w-50 me-3">
+    <div class="carousel-indicators">
+      {% for image in room.images.all %}
+        <button type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="{{ forloop.counter0 }}"
+                {% if forloop.first %}class="active" aria-current="true"{% endif %}
+                aria-label="Slide {{ forloop.counter }}">
+        </button>
+      {% endfor %}
+    </div>
+
+    <div class="carousel-inner">
+      {% for image in room.images.all %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <img src="{{ image.room_picture.url }}" class="d-block w-100 rounded-2" alt="...">
+        </div>
+      {% endfor %}
+    </div>
+
+    <button class="carousel-control-prev carousel_btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next carousel_btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
 </div>
 

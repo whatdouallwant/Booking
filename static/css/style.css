@@ -25,9 +25,11 @@ h1, h2, h3 {
     margin-top: 0;
 }
 
-button, .btn {
-    background-color: #818EC5;
-    color: white;
+button, .btn_card {
+    background: #f7cd11;
+    height: 40px;
+    position: relative;
+    top: 50px;
     border: none;
     padding: 10px 16px;
     border-radius: 6px;
@@ -35,24 +37,44 @@ button, .btn {
     transition: background-color 0.3s ease;
 }
 
-.carousel_btn {
-    width: 60px;
-    height: 60px;
-    border-radius: 40%;
-    margin-top: 380px;
-    margin-left: 20px;
-    margin-right: 20px;
-    background-color: #000000;
-    color: white;
+.carousel .carousel-control-prev.carousel_btn,
+.carousel .carousel-control-next.carousel_btn {
+    width: 10px;
+    height: 80px;
+    border-radius: 10%;
+    margin-top: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #0000009e;
+    color: rgb(0, 0, 0);
     border: none;
     padding: 10px 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
+.table{
+    border-radius: 20%;
+    width: 400px;
+    height: 400px;
+
+}
+
+.table tbody tr:nth-child(odd) td {
+  background-color: rgb(255, 255, 255) !important;
+}
+.table tbody tr:nth-child(even) td {
+  background-color: rgb(255, 255, 255) !important;
+}
+
+
 .carousel_btn:hover {
     background-color: #000000;
 }   
 button:hover, .btn:hover {
-    background-color: #40519f;
+    background-color: #151515;
 }
 
+.my-custom-color {
+  background-color: #474747 !important;
+}

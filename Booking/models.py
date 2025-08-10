@@ -50,3 +50,10 @@ class Bookings(models.Model):
         verbose_name = 'Бронювання'
         verbose_name_plural = 'Бронювання'
         ordering = ['-created_at']
+
+class Factors(models.Model):
+    wifi = models.BooleanField(default=False)
+    air_conditioning = models.BooleanField(default=False)
+    balcony = models.BooleanField(default=False)
+    tv = models.BooleanField(default=False)
+    breakfast_included = models.BooleanField(default=False)
