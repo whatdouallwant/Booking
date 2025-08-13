@@ -1,63 +1,85 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
-<nav class="navbar navbar-expand-lg bg-body-tertiary mb-3 rounded-2">
+<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary fixed-top my-navbar" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Booking</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Log in</a>
-        </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Log in</a></li>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="btn btn-outline-success search-button" type="submit">Search</button>
       </form>
     </div>
   </div>
 </nav>
 
-{% for room in rooms %}
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="{{room.picture.url}}" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <div class="d-flex gap-5 ">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <a class="btn btn_card"> </a>
+<div class="page-content">
+  {% for room in rooms %}
+  <div class="card mb-3" style="max-width: 2000px; z-index: 550;">
+    <div class="row g-0">
+      <div class="col-md-8">
+        <div class="card-body">
+          <div class="d-flex gap-0">
+            <div class="d-flex gap-0 col-md-2 card_horizontal_image" style="max-width: 1000px;">
+              <img src="{{room.picture.url}}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="container my_card-container" style="width: 370px;">
+              <table class="card-table" style="border-bottom-color:#ffd000 ;">
+                <tbody style="height: 100px;">
+                  <tr>
+                    <td style="color: #ffffff; text-align: center; margin-top: 20px;"> Ціна:</td>
+                    <td style="color: #ffffff;text-align: left;">{{room.price_per_night}} грн</td>
+                  </tr>
+                  <tr>
+                    <td style="color: #ffffff; text-align: center;"> Клас:</td>
+                    <td style="color: #ffffff; text-align: left;">{{room.get_room_type_display}}</td>
+                  </tr>
+                  <tr>
+                    <td class="td-amentity-display" style="color: #ffffff; text-align: center;"> Додатково:</td>
+                    <td class="td-amentity-display"></td>
+                  <tr>
+                    <td colspan="2" class="td-amentity-display">
+                      <ul class="amentity-display" style="margin-left: 10px;">
+                        {% for amenity in room.amenities.all %}
+                          <li>{{ amenity.name }} <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#91ff00"><path d="M400-304 240-464l56-56 104 104 264-264 56 56-320 320Z"/></svg></li>
+                        {% endfor %}
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          <div>
+            <a href="{% url 'room_page' room.pk %}" class="btn btn_card" style="left: 300px; width: 50px;">
+              <svg xmlns="http://www.w3.org/2000/svg" height="185px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M280-400q-33 0-56.5-23.5T200-480q0-33 23.5-56.5T280-560q33 0 56.5 23.5T360-480q0 33-23.5 56.5T280-400Zm0 160q-100 0-170-70T40-480q0-100 70-170t170-70q67 0 121.5 33t86.5 87h352l120 120-180 180-80-60-80 60-85-60h-47q-32 54-86.5 87T280-240Zm0-80q56 0 98.5-34t56.5-86h125l58 41 82-61 71 55 75-75-40-40H435q-14-52-56.5-86T280-640q-66 0-113 47t-47 113q0 66 47 113t113 47Z"/></svg>
+            </a>
+          </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  {% endfor %}
 </div>
-{%endfor%}
 
+<div class="container-for-filters"></div>
 
-<div class="d-flex gap-3 flex-wrap justify-content-center">
-{% for room in rooms %}
-<div class="card mb-3 me-2" style="width: 18rem;">
-  <img src={{room.picture.url}} class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Номер: {{room.room_number}}</h5>
-    <p class="card-text">{{room.price_per_night}} грн</p>
-    <a href="{% url 'room_page' room.pk %}" class="btn btn-primary">Детальніше</a>
+<div class="my_container">
+  <div class="text-container">
+
   </div>
 </div>
 
-{% endfor %}
-</div>    
 
-{% endblock  %}
+{% endblock %}
+
+

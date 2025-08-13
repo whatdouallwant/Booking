@@ -1,40 +1,114 @@
 
+
 body {
     background-image:
-        linear-gradient(to right, rgba(0, 0, 0, 0.216) 125px, transparent 2px),
-        url(https://images.wallpaperscraft.com/image/single/sunset_horizon_sea_128766_1280x720.jpg);
+        linear-gradient(to right, rgba(0, 0, 0, 0.332) 125px, transparent 2px),
+        url("Copilot_20250811_174425.png");
     background-size: 280px 100%, cover;
     background-repeat: repeat, no-repeat;
     background-position: 0 0, center;
     background-attachment: fixed;
 
+}
+
+.p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
-.container {
-    width: 75%;
-    max-width: 10000px;
-    margin: 100px auto;
+
+.my-navbar{
+    position: fixed;
+    background-color: #000000 !important; 
+    z-index: 1000;
+    left: 15%;
+    height: 70px;
+    width: 1050px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.my_container {
+    position: fixed;
+    left: 13.5%;
+    top: 0%;
+    width: 1100px;
+    height: 1000px;
+    max-width: 20000px;
+    margin: auto;
     padding: 25px;
-    background-color: #000000c7;
+    background-color: #1f1f1fad;
+
+    overflow-y: auto; 
+    z-index: 10;
+
+}
+
+.container-for-filters{
+    position: fixed;
+    background-color: #00000086;
+    top: 90px;
+    left: 63.5%;
     border-radius: 12px;
-
+    width: 320px;
+    height: 625px;
+    overflow-y: auto;
+    z-index: 1000;
 }
 
-h1, h2, h3 {
-    color: #222;
-    margin-top: 0;
+.table-container {
+    position: fixed;
+    top: 110px;
+    left: 18.5%;
+    background-color: #00000082;
+    border-radius: 12px;
+    z-index: 1001;
+    height: 400px;
+    width: 400px;
 }
 
-button, .btn_card {
-    background: #f7cd11;
-    height: 40px;
+.text-container {
+    position: fixed;
+    top: 110px;
+    left: 65%;
+    background-color: #00000082;
+    border-radius: 12px;
+    z-index: 1001;
+    height: 255px;
+    width: 280px;
+}
+
+.page-content{
+  padding: 20px;
+}
+
+.btn_card {
+    background: #e1b700;
+    height: 200px;
+    width: 70px;
     position: relative;
-    top: 50px;
+    margin-right: 10px;
     border: none;
-    padding: 10px 16px;
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    z-index: 3;
+}
+
+.carousel-indicators {
+  position: relative;
+  top: 350px;
+  z-index: 100;
+}
+
+.room-container{
+    position: relative;
+    top: 70px;
+    left: 140px;
+    width: 1000px;
+    height: 640px;
+    padding: 55px;
+    background-color: #0000008b; /*#0000003f */
+    border-radius: 20px;
 }
 
 .carousel .carousel-control-prev.carousel_btn,
@@ -42,7 +116,7 @@ button, .btn_card {
     width: 10px;
     height: 80px;
     border-radius: 10%;
-    margin-top: 100px;
+    margin-top: 170px;
     margin-left: 10px;
     margin-right: 10px;
     background-color: #0000009e;
@@ -50,29 +124,124 @@ button, .btn_card {
     border: none;
     padding: 10px 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    z-index: 1100;
 }
 
-.table{
+.card-table{
+    position: relative;
+    left: -20px;
+    margin-top: 10px;
     border-radius: 20%;
-    width: 400px;
-    height: 400px;
-
+    width: 360px;
+    text-align: center;
+    z-index: 1008;
 }
 
 .table tbody tr:nth-child(odd) td {
-  background-color: rgb(255, 255, 255) !important;
+  background-color: rgba(0, 0, 0, 0) !important;
 }
 .table tbody tr:nth-child(even) td {
-  background-color: rgb(255, 255, 255) !important;
+  background-color: rgba(0, 0, 0, 0) !important;
 }
 
+.card_horizontal_image{
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    width: 300px;
+    height: 200px;
+    margin-top: center;
+    object-fit: cover;
+    z-index: 2;
+}
+
+.card{
+    position: relative;
+    top: 50px;
+    left: 100px;
+    width: 700px;
+    height: 250px;
+    padding: 10px;
+    background-color: #0000008b; /*#0000003f */
+    border-radius: 20px;
+}
+
+.my_card-container{
+    position: relative;
+    right: 30px;
+    height: 200px;
+    border-color: #ffffff;
+    border-width: 10px;
+    border-radius: 0%;
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 270px;
+    background-color: rgba(0, 0, 0, 0.323);
+    color: #ffffff;
+    z-index: 1;
+}
+
+.amentity-display{
+    position: relative;
+    top: -5px;
+    flex-wrap: wrap;
+    display: flex !important;
+    padding-left: auto;
+    margin: auto;
+    list-style: none;
+    gap: 5px;
+    justify-content: flex-start;
+}
+table td .amentity-display li {
+    display: inline-flex;
+    border: 1px solid #ccc;
+    border-color: #00e20f;
+    background-color: #00000041;
+    color: #ffffff;
+    padding-top: auto;
+    padding-left: 15px;
+    padding-right: 5px;
+    border-radius: 14px;
+    font-size: 14px;
+    
+}
+
+.td-amentity-display {
+    border-bottom: none;
+    height: 40px;
+}
+
+.cell-content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.label {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
 
 .carousel_btn:hover {
     background-color: #000000;
 }   
 button:hover, .btn:hover {
-    background-color: #151515;
+    background: #ffd000;
+    border-color: #d3ad00;
+    color: #000000;
+    
+}
+
+.search-button{
+    border-color: #d3ad00;
+    border-width: 1.7px;
+    background-color: #00000000;
+    border-radius: 8px;
+    padding: 6px 12px;
+    cursor: pointer;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
 }
 
 .my-custom-color {

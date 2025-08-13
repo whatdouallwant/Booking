@@ -4,61 +4,70 @@
 
 
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary mb-3 rounded-2 w-100 navbar-styling my-custom-color">
+<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary fixed-top my-navbar" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="{% url 'home' %}">Booking</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Log in</a>
-        </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Log in</a></li>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="btn btn-outline-success search-button" type="submit">Search</button>
       </form>
     </div>
   </div>
 </nav>
 
-<div class="d-flex gap-5 ">
-  <table class="table">
-    <tbody>
-      <tr>
-        <td>Ціна</td>
-        <td>{{room.price_per_night}}</td>
-      </tr>
-      <tr>
-        <td>Ключ 2</td>
-        <td>Значення 2</td>
-      </tr>
-      <tr>
-        <td>Ключ 3</td>
-        <td>Значення 3</td>
-      </tr>
-      <tr>
-        <td>Ключ 3</td>
-        <td>Значення 3</td>
-      </tr>
-      <tr>
-        <td>Ключ 3</td>
-        <td>Значення 3</td>
-      </tr>
-      <tr>
-        <td>Ключ 3</td>
-        <td>Значення 3</td>
+<div class="room-container">
+  <div class="d-flex gap-5 table-container" style="margin-top: 7px;">
+    <table class="table" style="width: 350px; border-bottom-color:#ffd000; position: relative; z-index: 50; margin: auto; padding: auto;">
+      <tbody style="height: 100px;">
+        <tr>
+          <td style="color: #ffffff; text-align: center; margin-top: 20px;"> Ціна:</td>
+          <td style="color: #ffffff;text-align: left;">{{room.price_per_night}} грн</td>
+        </tr>
+        <tr>
+          <td style="color: #ffffff; text-align: center;"> Клас:</td>
+          <td style="color: #ffffff; text-align: left;">{{room.get_room_type_display}}</td>
+        </tr>
+        <tr>
+          <td style="color: #ffffff; text-align: center;"> Кількість спальних місць:</td>
+          <td style="color: #ffffff; text-align: left;">{{room.amount_of_beds}}</td>
+        </tr>
+        <tr>
+          <td style="color: #ffffff; text-align: center;"> Кількість осіб:</td>
+          <td style="color: #ffffff; text-align: left;">{{room.max_guests}}</td>
+        </tr>
+        <tr>
+          <td style="color: #ffffff; text-align: center;"> Площа:</td>
+          <td style="color: #ffffff; text-align: left;">{{room.area}} м²</td>
+        </tr>
+        <tr>
+          <td class="td-amentity-display" style="color: #ffffff; text-align: center;"> Додатково:</td>
+          <td class="td-amentity-display"></td>
+        <tr>
+          <td colspan="2" class="td-amentity-display">
+          <ul class="amentity-display" style="margin-left: -30px;">
+            {% for amenity in room.amenities.all %}
+              <li>{{ amenity.name }} <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#91ff00"><path d="M400-304 240-464l56-56 104 104 264-264 56 56-320 320Z"/></svg></li>
+            {% endfor %}
+          </ul>
+        </td>
       </tr>
     </tbody>
   </table>
+  </div>
+</div>
 
-  <div id="carouselExampleIndicators" class="carousel slide w-50 me-3">
+<div class="my_container">
+  <div id="carouselExampleIndicators" class="carousel slide w-50" style="position: relative; left: 45%; margin-top: 50px;">
     <div class="carousel-indicators">
       {% for image in room.images.all %}
         <button type="button"
@@ -70,7 +79,7 @@
       {% endfor %}
     </div>
 
-    <div class="carousel-inner">
+    <div class="carousel-inner" style="z-index: 70;">
       {% for image in room.images.all %}
         <div class="carousel-item {% if forloop.first %}active{% endif %}">
           <img src="{{ image.room_picture.url }}" class="d-block w-100 rounded-2" alt="...">
