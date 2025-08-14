@@ -128,6 +128,16 @@ body {
     z-index: 1100;
 }
 
+.login-form {
+    background-color: #ff000000;
+    position: relative;
+    margin-left: 20px;
+    margin-top: 100px;
+    padding: 20px;
+    height: 200px;
+    width: 500px;
+}
+
 .card-table{
     position: relative;
     left: -20px;
@@ -227,7 +237,7 @@ table td .amentity-display li {
     background-color: #000000;
 }   
 button:hover, .btn:hover {
-    background: #ffd000;
+    background: #ba9800;
     border-color: #d3ad00;
     color: #000000;
     

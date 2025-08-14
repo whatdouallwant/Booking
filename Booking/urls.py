@@ -1,4 +1,5 @@
 
+from django import views
 from django.urls import path
 from Booking.views import home, room_page
 
