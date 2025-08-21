@@ -3,7 +3,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary fixed-top my-navbar" data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Booking</a>
+    <a class="navbar-brand" href="{% url 'home' %}">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -11,11 +11,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Log in</a></li>
+        {% if user.is_authenticated %}
+            <span class="navbar-text">Hello, {{ user.username }}!</span>
+            <li class="nav-item"><a class="btn search-button" style="position: relative; left: 10px;" href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn search-button" style="position:relative; left: auto;">Log In</a>
+        {% endif %}
       </ul>
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <input class="form-control me-2" style="margin: auto;" type="search" placeholder="Search" aria-label="Search"/>
         <button class="btn btn-outline-success search-button" type="submit">Search</button>
       </form>
     </div>
