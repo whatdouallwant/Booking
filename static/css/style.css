@@ -36,7 +36,7 @@ body {
     max-width: 20000px;
     margin: auto;
     padding: 25px;
-    background-color: #1f1f1fad;
+    background-color: #272222ad;
 
     overflow-y: auto; 
     z-index: 5;
@@ -141,7 +141,7 @@ body {
 .modal.fade {
     display: none;
     position: fixed;
-    z-index: 2050;
+    z-index: 10000 !important; 
     left: 0;
     top: 0;
     width: 100%;
@@ -297,10 +297,6 @@ form input:focus {
     border-color: #40519f;
     box-shadow: 0 0 5px #40519f;
     outline: none;
-}
-
-.modal{
-    z-index: 999999 !important;
 }
 
 .my-custom-color {
