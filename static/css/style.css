@@ -204,6 +204,21 @@ body {
     z-index: 1;
 }
 
+.booking-form {
+    display: none;
+    background: #000000c7;
+    padding: 20px;
+    height: 220px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin-top: -160px;
+    margin-left: 490px;
+  }
+
+#toggleForm:checked ~ .booking-form {
+    display: block;
+  }
+
 .amentity-display{
     position: relative;
     top: -5px;

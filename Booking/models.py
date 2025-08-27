@@ -49,6 +49,7 @@ class Bookings(models.Model):
     check_in_date = models.DateTimeField()
     check_out_date = models.DateTimeField()
     email = models.EmailField(default='noname@example.com')
+    guests = models.PositiveIntegerField(default=1)
     status = models.CharField(max_length=3, choices=STATUS_CHOICES, default='wtn')
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
