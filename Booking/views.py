@@ -16,7 +16,6 @@ def book_room(request, room_id):
         )
         return render(request, "booking_room/room.html", {
             "room": room,
-            "success": "Бронювання пройшло успішно! 🎉"
         })
 
 def home(request):
